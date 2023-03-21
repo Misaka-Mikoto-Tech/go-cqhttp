@@ -73,6 +73,7 @@ func (bot *CQBot) formatGroupMessage(m *message.GroupMessage) *event {
 		"anonymous":   nil,
 		"font":        0,
 		"group_id":    m.GroupCode,
+		"group_name":  m.GroupName,
 		"message":     ToFormattedMessage(m.Elements, source),
 		"message_seq": m.Id,
 		"raw_message": cqm,

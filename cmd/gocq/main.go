@@ -365,9 +365,15 @@ func LoginInteract() {
 	log.Info("开始加载好友列表...")
 	global.Check(cli.ReloadFriendList(), true)
 	log.Infof("共加载 %v 个好友.", len(cli.FriendList))
+	for _, friend := range cli.FriendList {
+		log.Infof("\t%v(%v)", friend.Nickname, friend.Uin)
+	}
 	log.Infof("开始加载群列表...")
 	global.Check(cli.ReloadGroupList(), true)
 	log.Infof("共加载 %v 个群.", len(cli.GroupList))
+	for _, group := range cli.GroupList {
+		log.Infof("\t%v(%v)", group.Name, group.Code)
+	}
 	if uint(base.Account.Status) >= uint(len(allowStatus)) {
 		base.Account.Status = 0
 	}
